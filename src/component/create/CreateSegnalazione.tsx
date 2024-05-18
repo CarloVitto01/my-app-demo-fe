@@ -9,6 +9,7 @@ const CreateSegnalazioneForm = () => {
     const handleSubmit: SubmitHandler<SegnalazioneModel> = async (data) => {
         try {
             await SegnalazioniService.createSegnalazioni(data);
+            window.location.reload();
         } catch (error) {
             console.error("Errore durante il salvataggio del quiz:", error);
         }
@@ -25,20 +26,6 @@ const CreateSegnalazioneForm = () => {
                         className='input-form'
                         placeholder='description'
                         {...register('description')}
-                    />
-                </div>
-            </div>
-            <div className='sectionForm'>
-                <div>
-                    <label>Date:</label>
-                </div>
-                <div className='subSectionForm'>
-
-                    <input
-                        type="date"
-                        className='input-form'
-                        placeholder='date'
-                        {...register('date')}
                     />
                 </div>
             </div>

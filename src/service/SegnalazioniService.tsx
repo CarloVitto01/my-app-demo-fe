@@ -4,12 +4,15 @@ import SegnalazioneModel from "../models/SegnalazioneModel";
 
 const SEGNALAZIONI_API_BASE_URL = "http://localhost:8080";
 const VERSION_URI = SEGNALAZIONI_API_BASE_URL + "/api/v1";
-const SEGNALAZIONI_URI = VERSION_URI + "/segnalazioni";
-const BASE_ALL = SEGNALAZIONI_URI + "/";
+const SEGNALAZIONI_URI = VERSION_URI + "/segnalazione";
+const GETALL_URI = SEGNALAZIONI_URI + "/segnalazioni";
+const CREATE_URI = SEGNALAZIONI_URI + "/segnalazione";
+const DELETE_URI = SEGNALAZIONI_URI + "/segnalazione/";
+const FILTER_URI = SEGNALAZIONI_URI + "/segnalazione/";
 
 const getSegnalazioni = async () => {
     try {
-        return await axios.get(BASE_ALL);
+        return await axios.get(GETALL_URI);
     } catch (error) {
         console.error("Error getting abilities:", error);
         throw error;
@@ -18,7 +21,7 @@ const getSegnalazioni = async () => {
 
 const createSegnalazioni = async (segnalazione : SegnalazioneModel) => {
     try {
-        const response = await axios.post(BASE_ALL, segnalazione);
+        const response = await axios.post(CREATE_URI, segnalazione);
         return response;
     } catch (error) {
         console.error("Error getting abilities:", error);
@@ -28,7 +31,7 @@ const createSegnalazioni = async (segnalazione : SegnalazioneModel) => {
 
 const deleteSegnalazione = async (segnalazioneid : number) => {
     try {
-        const response = await axios.delete(BASE_ALL + segnalazioneid);
+        const response = await axios.delete(DELETE_URI + segnalazioneid);
         return response;
     } catch (error) {
         console.error("Error getting abilities:", error);
@@ -39,7 +42,7 @@ const deleteSegnalazione = async (segnalazioneid : number) => {
 
 const filteredSegnalazione = async (dateSegnalazione : Date) => {
     try {
-        const response = await axios.get(BASE_ALL + dateSegnalazione);
+        const response = await axios.get(FILTER_URI + dateSegnalazione);
         return response;
     } catch (error) {
         console.error("Error getting abilities:", error);
