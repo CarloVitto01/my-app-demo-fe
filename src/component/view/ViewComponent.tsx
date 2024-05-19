@@ -4,9 +4,18 @@ import SegnalazioniService from "../../service/SegnalazioniService";
 import "./ViewComponent.css"
 import { useForm } from "react-hook-form";
 
+type FilteredSegnalazioni = Segnalazioni & {
+  filter: string;
+  inputF: string;
+};
+
 const ViewComponent = () => {
   const [segnalazioniList, setSegnalazioniList] = useState<Segnalazioni[]>([]);
-  const { register, handleSubmit } = useForm<Segnalazioni>();
+  const { register, handleSubmit } = useForm<FilteredSegnalazioni>();
+  const [filterType, setFilterType] = useState<string>("")
+  const [filterValue, setFilterValue] = useState<string>("")
+
+  
 
   useEffect(() => {
     SegnalazioniService.getSegnalazioni().then((res) => {
@@ -26,27 +35,46 @@ const ViewComponent = () => {
     window.location.reload();
   };
 
-  const filterByDates = async (date: Date) => {
-      const filtered = await SegnalazioniService.filteredSegnalazione(date);
-      console.log("Ho filtrato con le seguenti date: " + date);
-      setSegnalazioniList(filtered.data);
+  const filterBy = async (data: FilteredSegnalazioni) => {
+    const { filter, inputF } = data;
+    const filtered = await SegnalazioniService.filteredSegnalazioneBy(filter, inputF);
+    console.log("Ho filtrato con le seguenti date: " + filterValue);
+    setSegnalazioniList(filtered.data);
+  };
+
+  const filterBys = async () => {
+    const filtered = await SegnalazioniService.filteredSegnalazioneBy(filterType, filterValue);
+    console.log("Ho filtrato con le seguenti date: " + filterValue);
+    setSegnalazioniList(filtered.data);
   };
 
   return (
     <div>
       <div>
         <div>
-          <form onSubmit={handleSubmit((data) => filterByDates(data.date))}>
+        <form onSubmit={handleSubmit(filterBy)}>
             <div className='sectionForm'>
               <div>
-                <label>Date:</label>
+                <label htmlFor="filterType">Filter by:</label>
+              </div>
+              <div className='subSectionForm'>
+                <select id="filterType" {...register('filter')}>
+                  <option value="date">Date</option>
+                  <option value="surname">Surname</option>
+                </select>
+              </div>
+            </div>
+            <div className='sectionForm'>
+              <div>
+                <label htmlFor="filterValue">Filter value:</label>
               </div>
               <div className='subSectionForm'>
                 <input
-                  type="date"
+                  id="filterValue"
+                  type="text"
                   className='input-form'
-                  placeholder='date'
-                  {...register('date')}
+                  placeholder='Filter value'
+                  {...register('inputF')}
                 />
               </div>
             </div>

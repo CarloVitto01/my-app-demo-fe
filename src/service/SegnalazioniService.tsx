@@ -8,7 +8,7 @@ const SEGNALAZIONI_URI = VERSION_URI + "/segnalazione";
 const GETALL_URI = SEGNALAZIONI_URI + "/segnalazioni";
 const CREATE_URI = SEGNALAZIONI_URI + "/segnalazione";
 const DELETE_URI = SEGNALAZIONI_URI + "/segnalazione/";
-const FILTER_URI = SEGNALAZIONI_URI + "/segnalazione/";
+const FILTER_URI = SEGNALAZIONI_URI + "/filteredList";
 
 const getSegnalazioni = async () => {
     try {
@@ -19,7 +19,7 @@ const getSegnalazioni = async () => {
     }
 };
 
-const createSegnalazioni = async (segnalazione : SegnalazioneModel) => {
+const createSegnalazioni = async (segnalazione: SegnalazioneModel) => {
     try {
         const response = await axios.post(CREATE_URI, segnalazione);
         return response;
@@ -29,7 +29,7 @@ const createSegnalazioni = async (segnalazione : SegnalazioneModel) => {
     }
 };
 
-const deleteSegnalazione = async (segnalazioneid : number) => {
+const deleteSegnalazione = async (segnalazioneid: number) => {
     try {
         const response = await axios.delete(DELETE_URI + segnalazioneid);
         return response;
@@ -40,7 +40,7 @@ const deleteSegnalazione = async (segnalazioneid : number) => {
 };
 
 
-const filteredSegnalazione = async (dateSegnalazione : Date) => {
+const filteredSegnalazione = async (dateSegnalazione: Date) => {
     try {
         const response = await axios.get(FILTER_URI + dateSegnalazione);
         return response;
@@ -51,11 +51,31 @@ const filteredSegnalazione = async (dateSegnalazione : Date) => {
 };
 
 
+const filteredSegnalazioneBy = async (filterType: string, inputFiltered: string) => {
+    try {
+        const response = await axios.get(FILTER_URI,
+            {
+                params:
+                {
+                    filter: filterType,
+                    inputFilter: inputFiltered
+                }
+            }
+        );
+        return response;
+    } catch (error) {
+        console.error("Error getting Filtered list:", error);
+        throw error;
+    }
+};
+
+
 const SegnalazioniService = {
     getSegnalazioni,
     createSegnalazioni,
     deleteSegnalazione,
-    filteredSegnalazione
+    filteredSegnalazione,
+    filteredSegnalazioneBy
 };
 
 export default SegnalazioniService;
