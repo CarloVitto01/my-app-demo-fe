@@ -4,7 +4,14 @@ import "./CreateSegnalazione.css"
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 const CreateSegnalazioneForm = () => {
-    const { register, handleSubmit: handleSubmitForm } = useForm<SegnalazioneModel>()
+    const { register, handleSubmit: handleSubmitForm, watch } = useForm<SegnalazioneModel>()
+    const description = watch('description');
+    const clienteName = watch('cliente.name');
+    const clienteSurname = watch('cliente.surname');
+    const tecnicoName = watch('tecnico.name');
+    const tecnicoSurname = watch('tecnico.surname');
+    const isSubmitDisabled = !description || !clienteName || !clienteSurname || !tecnicoName || !tecnicoSurname;
+
 
     const handleSubmit: SubmitHandler<SegnalazioneModel> = async (data) => {
         try {
@@ -71,7 +78,7 @@ const CreateSegnalazioneForm = () => {
                     />
                 </div>
             </div>
-            <button type="submit" className='submit'>Create Segnalazione</button>
+            <button type="submit" className='submit' disabled={isSubmitDisabled}>Create Segnalazione</button>
         </form>
     );
 };

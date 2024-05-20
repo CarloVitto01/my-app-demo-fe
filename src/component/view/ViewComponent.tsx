@@ -11,11 +11,8 @@ type FilteredSegnalazioni = Segnalazioni & {
 
 const ViewComponent = () => {
   const [segnalazioniList, setSegnalazioniList] = useState<Segnalazioni[]>([]);
-  const { register, handleSubmit } = useForm<FilteredSegnalazioni>();
-  const [filterType, setFilterType] = useState<string>("")
-  const [filterValue, setFilterValue] = useState<string>("")
-
-  
+  const { register, handleSubmit, watch } = useForm<FilteredSegnalazioni>();
+  const inputFValue = watch('inputF');
 
   useEffect(() => {
     SegnalazioniService.getSegnalazioni().then((res) => {
@@ -38,72 +35,60 @@ const ViewComponent = () => {
   const filterBy = async (data: FilteredSegnalazioni) => {
     const { filter, inputF } = data;
     const filtered = await SegnalazioniService.filteredSegnalazioneBy(filter, inputF);
-    console.log("Ho filtrato con le seguenti date: " + filterValue);
-    setSegnalazioniList(filtered.data);
-  };
-
-  const filterBys = async () => {
-    const filtered = await SegnalazioniService.filteredSegnalazioneBy(filterType, filterValue);
-    console.log("Ho filtrato con le seguenti date: " + filterValue);
+    console.log("Ho filtrato con le seguenti date: " + inputF);
     setSegnalazioniList(filtered.data);
   };
 
   return (
     <div>
-      <div>
-        <div>
-        <form onSubmit={handleSubmit(filterBy)}>
-            <div className='sectionForm'>
-              <div>
-                <label htmlFor="filterType">Filter by:</label>
-              </div>
-              <div className='subSectionForm'>
-                <select id="filterType" {...register('filter')}>
-                  <option value="date">Date</option>
-                  <option value="surname">Surname</option>
-                </select>
-              </div>
+      <div className="bodySearch">
+        <div className="searchContainer">
+          <form onSubmit={handleSubmit(filterBy)} className="searchForm">
+            <div className="sectionSearch">
+              <label htmlFor="filterType">Filter by:</label>
+              <select id="filterType" {...register('filter')}>
+                <option value="date">Date</option>
+                <option value="surname">Surname</option>
+              </select>
             </div>
-            <div className='sectionForm'>
-              <div>
-                <label htmlFor="filterValue">Filter value:</label>
-              </div>
-              <div className='subSectionForm'>
-                <input
-                  id="filterValue"
-                  type="text"
-                  className='input-form'
-                  placeholder='Filter value'
-                  {...register('inputF')}
-                />
-              </div>
+            <div className="sectionSearch">
+              <label htmlFor="filterValue">Filter value:</label>
+              <input
+                id="filterValue"
+                type="text"
+                className='input-form'
+                placeholder='Filter value'
+                {...register('inputF')}
+              />
             </div>
-            <button type="submit">Filter</button>
-            <button onClick={filterReset}>Reset</button>
+            <div className="sectionSearch">
+              <button type="submit" disabled={!inputFValue} className="buttonFilter">Filter</button>
+              <button type="button" onClick={filterReset} className="buttonReset">Reset</button>
+            </div>
           </form>
         </div>
-        <div className={`containerCardSegnalazioni`}>
-          {segnalazioniList.map((segnalazioni: Segnalazioni) => (
-            <div className={`cardSegnalazioni`} key={segnalazioni.id}>
-              <div className="containerSegnalazioni">
-                <div className="sectionSegnalazioniDescription">
-                  <h4>Description: </h4>
-                  <p>{segnalazioni.description}</p>
-                  <p>{segnalazioni?.date?.toString()}</p>
-                </div>
-                <div className="sectionSegnalazioni">
-                  <h4>Cliente: </h4>
-                  <p>{segnalazioni.cliente.name} {segnalazioni.cliente.surname}</p>
-                  <h4>Tecnico: </h4>
-                  <p>{segnalazioni.tecnico.name} {segnalazioni.tecnico.surname}</p>
-                </div>
-                <div>
-                  <button onClick={() => deleteLesson(segnalazioni?.id!)}>delete</button>
-                </div>
+      </div>
+      <div className={`containerCardSegnalazioni`}>
+        {segnalazioniList.map((segnalazioni: Segnalazioni) => (
+          <div className={`cardSegnalazioni`} key={segnalazioni.id}>
+            <div className="containerSegnalazioni">
+              <div className="sectionSegnalazioniDescription">
+                <h4>Description: </h4>
+                <p>{segnalazioni.description}</p>
+                <p>{segnalazioni?.date?.toString()}</p>
+              </div>
+              <div className="sectionSegnalazioni">
+                <h4>Cliente: </h4>
+                <p>{segnalazioni.cliente.name} {segnalazioni.cliente.surname}</p>
+                <h4>Tecnico: </h4>
+                <p>{segnalazioni.tecnico.name} {segnalazioni.tecnico.surname}</p>
+              </div>
+              <div>
+                <button onClick={() => deleteLesson(segnalazioni?.id!)}>delete</button>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );

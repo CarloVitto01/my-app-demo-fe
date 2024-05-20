@@ -1,0 +1,27 @@
+.bodyHeader{
+    margin-bottom: 2em;
+}
+
+.containerHeader{
+    border-bottom: 4px solid #c7ab2b;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .4);
+}
+
+.sectionContainer{
+    width: 33%;
+}
+
+.buttonCreate{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5px;
+}
+
+.titleStyle{
+    font-family: Oswald;
+}

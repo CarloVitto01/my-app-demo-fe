@@ -1,36 +1,59 @@
+.bodySearch{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchContainer {
+  border: 2px solid #c7ab2b;
+  border-radius: 15px;
+  width: 50%;
+}
+
+.sectionSearch{
+  margin: 0% 4% 0% 4%;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+
 .containerCardSegnalazioni {
-    margin: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .cardSegnalazioni {
-    border: 2px solid black;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 400px;
-    margin: 2px;
-  }
-  
-  .sectionSegnalazioni {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .sectionSegnalazioniDescription {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    word-wrap: break-word;
-    text-align: center;
-  }
-  
-  @media (min-width: 768px) {
-    .cardSegnalazioni {
-      width: 45%;
-      margin: 5px;
-    }
-  }
-  
+  margin: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cardSegnalazioni {
+  border: 2px solid black;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  margin: 2px;
+}
+
+.sectionSegnalazioni {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionSegnalazioniDescription {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.buttonFilter{
+  background-color: blue;
+  width: 10px;
+}
