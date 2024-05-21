@@ -20,6 +20,28 @@
     transform: translateY(0px)
 }
 
+.buttonClose {
+    border: none;
+    cursor: pointer;
+    padding: 0%;
+    border-radius: 12px;
+    background-color: #680000;
+  }
+  
+  .frontClose {
+    display: block;
+    padding: 12px 42px;
+    border-radius: 12px;
+    font-size: 1rem;
+    background-color: #dd0000;
+    color: black;
+    transform: translateY(-6px);
+  }
+  
+  .buttonClose:active .frontClose {
+    transform: translateY(0px)
+  }
+
 .modal-container {
     text-align: center;
 }

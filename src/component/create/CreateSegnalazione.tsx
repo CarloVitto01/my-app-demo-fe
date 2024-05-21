@@ -28,57 +28,56 @@ const CreateSegnalazioneForm = () => {
                 <div>
                     <label>Description:</label>
                 </div>
-                <div className='subSectionForm'>
-                    <textarea
-                        className='input-form'
-                        placeholder='description'
-                        {...register('description')}
-                    />
-                </div>
+                <textarea
+                    className='input-form'
+                    placeholder='description'
+                    {...register('description')}
+                />
             </div>
             <div className='sectionForm'>
-                <div>
-                    <h3>Cliente Details</h3>
-                </div>
-                <div className='subSectionForm'>
-                    <label>Name:</label>
-                    <input
-                        type="text"
-                        className='input-form'
-                        placeholder='cliente.name'
-                        {...register('cliente.name')}
-                    />
-                    <label>Surname:</label>
-                    <input
-                        type="text"
-                        className='input-form'
-                        placeholder='cliente.surname'
-                        {...register('cliente.surname')}
-                    />
-                </div>
+                <label>Client Name:</label>
+                <input
+                    type="text"
+                    className='input-form'
+                    placeholder='Name'
+                    {...register('cliente.name')}
+                />
             </div>
             <div className='sectionForm'>
-                <div>
-                    <h3>Tecnico Details</h3>
-                </div>
-                <div className='subSectionForm'>
-                    <label>Name:</label>
-                    <input
-                        type="text"
-                        className='input-form'
-                        placeholder='tecnico.name'
-                        {...register('tecnico.name')}
-                    />
-                    <label>Surname:</label>
-                    <input
-                        type="text"
-                        className='input-form'
-                        placeholder='tecnico.surname'
-                        {...register('tecnico.surname')}
-                    />
-                </div>
+                <label>Client Surname:</label>
+                <input
+                    type="text"
+                    className='input-form'
+                    placeholder='Surname'
+                    {...register('cliente.surname')}
+                />
             </div>
-            <button type="submit" className='submit' disabled={isSubmitDisabled}>Create Segnalazione</button>
+            <div className='sectionForm'>
+                <label>Technician name:</label>
+                <input
+                    type="text"
+                    className='input-form'
+                    placeholder='Name'
+                    {...register('tecnico.name')}
+                />
+            </div>
+            <div className='sectionForm'>
+                <label>Technician surname:</label>
+                <input
+                    type="text"
+                    className='input-form'
+                    placeholder='Surname'
+                    {...register('tecnico.surname')}
+                />
+            </div>
+            <div className='containerButtonCreate'>
+                
+            <button type="submit" className='buttonCreate' disabled={isSubmitDisabled}>
+                <span className='frontCreate'>
+                    Create Report
+                </span>
+            </button>
+            </div>
         </form>
     );
 };

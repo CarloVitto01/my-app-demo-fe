@@ -8,20 +8,42 @@
 .input-form{
     width: 18vw;
     margin: 2px;
-    border: none;
-    border-bottom: 1px solid;
+    border-radius: 15px;
 }
 
 .input-form:hover{
     background-color: rgb(224, 224, 224);
 }
 
-.subSectionForm{
-    display: flex;
-    align-items: center;
-}
-
 .submit{
     background-color: rgb(0, 180, 0);
     border: 3px solid rgb(0, 113, 0);
 }
+
+.containerButtonCreate{
+    display: flex;
+    justify-content: center;
+    padding: 2em;
+}
+
+.buttonCreate {
+    border: none;
+    cursor: pointer;
+    padding: 0%;
+    border-radius: 12px;
+    background-color: #096800;
+  }
+  
+  .frontCreate {
+    display: block;
+    padding: 12px 42px;
+    border-radius: 12px;
+    font-size: 1rem;
+    background-color: #34dd00;
+    color: black;
+    transform: translateY(-6px);
+  }
+  
+  .buttonCreate:active .frontCreate {
+    transform: translateY(0px)
+  }

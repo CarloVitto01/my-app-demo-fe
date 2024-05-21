@@ -1,59 +1,130 @@
-.bodySearch{
+/* Overall Container */
+.bodySearch {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  padding: 20px;
 }
 
 .searchContainer {
   border: 2px solid #c7ab2b;
   border-radius: 15px;
-  width: 50%;
-}
-
-.sectionSearch{
-  margin: 0% 4% 0% 4%;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 50em;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .searchForm {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
 }
 
+.sectionSearch {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 10px;
+}
 
+.input-form {
+  width: 80%;
+  padding: 10px;
 
+}
+
+.buttonFilter {
+  border: none;
+  cursor: pointer;
+  padding: 0%;
+  margin-right: 5em;
+  border-radius: 12px;
+  background-color: #096800;
+}
+
+.frontFilter {
+  display: block;
+  padding: 12px 42px;
+  border-radius: 12px;
+  font-size: 1rem;
+  background-color: #34dd00;
+  transform: translateY(-6px);
+}
+
+.buttonFilter:active .frontFilter {
+  transform: translateY(0px)
+}
 
 
 .containerCardSegnalazioni {
-  margin: 5px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
+/* Individual Card */
 .cardSegnalazioni {
-  border: 2px solid black;
+  border: 1px solid #ccc;
   border-radius: 15px;
-  width: 90%;
+  width: 100%;
   max-width: 400px;
-  margin: 2px;
-}
-
-.sectionSegnalazioni {
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.containerSegnalazioni {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sectionSegnalazioniDescription, .sectionSegnalazioni {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sectionSegnalazioniDescription h4, .sectionSegnalazioni h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.sectionSegnalazioniDescription p, .sectionSegnalazioni p {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 .sectionSegnalazioniDescription {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  word-wrap: break-word;
-  text-align: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
 }
 
-.buttonFilter{
-  background-color: blue;
-  width: 10px;
+.buttonDelete {
+  align-self: flex-end;
+  background-color: #c70010;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.buttonDelete:hover {
+  background-color: #a0000d;
 }

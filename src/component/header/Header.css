@@ -16,7 +16,7 @@
     width: 33%;
 }
 
-.buttonCreate{
+.buttonModalCreate{
     display: flex;
     justify-content: flex-end;
     margin-right: 5px;

@@ -23,7 +23,7 @@ const ButtonCreateSegnalazione = () => {
                         <div className='subContainerModal'>
                             <div className='sectionSubContainerModal'></div>
                             <div className='sectionSubContainerModal'><h2>Fill in all fields!</h2></div>
-                            <div className='sectionSubContainerModal buttonCloseModal'><button onClick={toggleModal} className='button-close'>Close</button></div>
+                            <div className='sectionSubContainerModal buttonCloseModal'><button onClick={toggleModal} className='buttonClose'><span className='frontClose'>Close</span></button></div>
                         </div>
                         <CreateSegnalazioneForm />
                     </div>

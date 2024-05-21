@@ -11,7 +11,7 @@ const Header = () => {
                 <div className='sectionContainer'>
                     <h1 className='titleStyle'>Reporting Center</h1>
                 </div>
-                <div className='sectionContainer buttonCreate'>
+                <div className='sectionContainer buttonModalCreate'>
                     <ButtonCreateSegnalazione />
                 </div>
             </div>
