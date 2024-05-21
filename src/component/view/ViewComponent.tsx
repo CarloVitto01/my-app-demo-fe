@@ -2,26 +2,22 @@ import React, { useEffect, useState } from "react";
 import Segnalazioni from "../../models/SegnalazioneModel";
 import SegnalazioniService from "../../service/SegnalazioniService";
 import "./ViewComponent.css";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 
-type FilteredSegnalazioni = Segnalazioni & {
-  surnameInput?: string;
-  dateInput?: Date;
-};
+
 
 const ViewComponent = () => {
   const [segnalazioniList, setSegnalazioniList] = useState<Segnalazioni[]>([]);
-  const { register, handleSubmit } = useForm<FilteredSegnalazioni>();
+  const { register, handleSubmit } = useForm<Segnalazioni>();
 
-  const deleteLesson = async (id: number) => {
+  const deleteSegnalazioni = async (id: number) => {
     await SegnalazioniService.deleteSegnalazione(id);
     console.log("Ho eliminato la segnalazione con id : " + id);
     window.location.reload();
   };
 
-  const filterBy = async (data: FilteredSegnalazioni) => {
-    const { surnameInput, dateInput } = data;
-    const filtered = await SegnalazioniService.filteredSegnalazioneBy(surnameInput!, dateInput!);
+  const filterBy: SubmitHandler<Segnalazioni> = async (data) => {
+    const filtered = await SegnalazioniService.filteredSegnalazioneBy(data.cliente.surname, data.date);
     console.log(filtered.data);
     setSegnalazioniList(filtered.data);
   };
@@ -37,7 +33,7 @@ const ViewComponent = () => {
                 id="dateInput"
                 type="date"
                 className="input-form"
-                {...register('dateInput')}
+                {...register('date')}
               />
             </div>
             <div className="sectionSearch">
@@ -47,7 +43,7 @@ const ViewComponent = () => {
                 type="text"
                 className="input-form"
                 placeholder="Filter value"
-                {...register('surnameInput')}
+                {...register('cliente.surname')}
               />
             </div>
             <div className="sectionSearch">
@@ -74,7 +70,7 @@ const ViewComponent = () => {
                 <p>{segnalazioni.tecnico.name} {segnalazioni.tecnico.surname}</p>
               </div>
               <div>
-                <button onClick={() => deleteLesson(segnalazioni?.id!)}>delete</button>
+                <button onClick={() => deleteSegnalazioni(segnalazioni?.id!)}>delete</button>
               </div>
             </div>
           </div>
