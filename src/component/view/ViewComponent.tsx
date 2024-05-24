@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import {useState} from "react";
 import Segnalazioni from "../../models/SegnalazioneModel";
 import SegnalazioniService from "../../service/SegnalazioniService";
 import "./ViewComponent.css";
