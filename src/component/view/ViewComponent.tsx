@@ -13,7 +13,7 @@ const ViewComponent = () => {
   const deleteSegnalazioni = async (id: number) => {
     await SegnalazioniService.deleteSegnalazione(id);
     console.log("Ho eliminato la segnalazione con id : " + id);
-    window.location.reload();
+    setSegnalazioniList(segnalazioniList.filter(segnal => segnal.id !== id ))
   };
 
   const filterBy: SubmitHandler<Segnalazioni> = async (data) => {
