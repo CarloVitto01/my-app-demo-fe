@@ -1,8 +1,9 @@
-
 interface Cliente {
-    id?: number,
-    name: string,
-    surname: string,
+    id_cliente?: number,
+    nome: string,
+    cognome: string,
+    email: string,
+    telefono: string
 }
 
 export default Cliente;

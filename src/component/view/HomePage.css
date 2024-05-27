@@ -1,0 +1,92 @@
+.filterContainer {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.filterSubContainer {
+  border: 3px solid #c7ab2b;
+  border-radius: 15px;
+  width: 40em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.filterForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1em;
+}
+
+.inputFilter{
+  width: 200px;
+  height: 25px;
+  padding: 0.3em;
+  border-radius: 15px;
+}
+
+.filterSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filterButton {
+  background-color: #2C458D;
+  border: 3px solid #2C458D;
+  border-radius: 15px;
+  padding: 0.8em;
+  cursor: pointer;
+  color: white;
+}
+
+.filterButton:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+.containerCardSegnalazioni {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.cardSegnalazioni {
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 20em;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionSegnalazioniDescription,
+.sectionSegnalazioni {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sectionSegnalazioniDescription h4,
+.sectionSegnalazioni h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.sectionSegnalazioniDescription p,
+.sectionSegnalazioni p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.sectionSegnalazioniDescription ,
+.sectionSegnalazioni{
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}

@@ -1,12 +1,11 @@
-import tecnico from "./TecnicoModel";
-import cliente from "./ClienteModel";
+import Cliente from "./ClienteModel";
+import Tecnico from "./TecnicoModel";
 
-interface Segnalazioni {
-    id?: number,
-    description: string,
-    date: Date,
-    cliente: cliente,
-    tecnico: tecnico,
+interface Segnalazione {
+    id_segnalazione?: number;
+    cliente: Cliente,
+    tecnico: Tecnico,
+    data_ora: Date
 }
 
-export default Segnalazioni;
+export default Segnalazione;

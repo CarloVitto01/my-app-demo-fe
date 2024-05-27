@@ -1,7 +1,6 @@
 import './App.css';
-import ButtonCreateSegnalazione from './component/create/ButtonCreateSegnalazione';
 import Header from './component/header/Header';
-import ViewComponent from './component/view/ViewComponent';
+import HomePage from './component/view/HomePage';
 
 function App() {
   return (
@@ -10,7 +9,7 @@ function App() {
         <Header />
       </div>
       <div>
-        <ViewComponent />
+        <HomePage />
       </div>
     </div>
   );
