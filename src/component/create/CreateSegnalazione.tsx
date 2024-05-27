@@ -4,10 +4,11 @@ import "./CreateSegnalazione.css"
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 const CreateSegnalazioneForm = () => {
-    const { register, handleSubmit: handleSubmitForm } = useForm<SegnalazioneModel>()
+    const { register, handleSubmit: handleSubmitForm, reset } = useForm<SegnalazioneModel>()
 
     const handleSubmit: SubmitHandler<SegnalazioneModel> = async (data) => {
         await SegnalazioniService.createSegnalazioni(data);
+        reset();
     };
 
     return (
@@ -47,6 +48,7 @@ const CreateSegnalazioneForm = () => {
             <div className='containerButtonCreate'>
                 <button type="submit" className='buttonFormCreate'>Create Report</button>
             </div>
+            
         </form>
     );
 };

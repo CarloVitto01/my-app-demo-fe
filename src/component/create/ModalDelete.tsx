@@ -2,19 +2,23 @@ import React, { useState } from 'react';
 import SegnalazioniService from '../../service/SegnalazioniService';
 import "./ModalDelete.css"
 
-interface CheckDeleteProps {
-  deleteId: number
+interface iProps {
+  deleteId: number;
+  onDelete: (id : number) => void;
 }
 
-const ModalDelete = ({ deleteId }: CheckDeleteProps) => {
+const ModalDelete = (props: iProps) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  
+  const {deleteId, onDelete }= props
 
   const handleDelete = async () => {
     await SegnalazioniService.deleteSegnalazione(deleteId);
     console.log("Segnalazione eliminata con successo, ID: " + deleteId);
+    onDelete(deleteId)
     handleClose();
   };
 

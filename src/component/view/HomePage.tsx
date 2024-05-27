@@ -5,8 +5,6 @@ import SegnalazioneModel from "../../models/SegnalazioneModel";
 import SegnalazioniService from "../../service/SegnalazioniService";
 import ModalDelete from "../create/ModalDelete";
 
-
-
 const HomePage = () => {
   const [segnalazioniList, setSegnalazioniList] = useState<SegnalazioneModel[]>([]);
   const { register, handleSubmit } = useForm<SegnalazioneModel>();
@@ -16,9 +14,13 @@ const HomePage = () => {
     setSegnalazioniList(filtered.data);
   };
 
+  const onDelete = (id : number) => {
+    setSegnalazioniList(prevList=> prevList.filter(segnalazione => segnalazione.id_segnalazione !== id))
+  }
+
   useEffect(() => {
     const getAllSegnalazioni = async () => {
-      const filtered = await SegnalazioniService.filteredSegnalazioneBy("", null);
+      const filtered = await SegnalazioniService.filteredSegnalazioneBy(null, null);
       setSegnalazioniList(filtered.data);
     };
     getAllSegnalazioni();
@@ -68,7 +70,7 @@ const HomePage = () => {
               <p>Assunzione: {segnalazione.tecnico.data_assunzione.toString()}</p>
             </div>
             <div>
-              <ModalDelete deleteId={segnalazione.id_segnalazione!} />
+              <ModalDelete deleteId={segnalazione.id_segnalazione!} onDelete={onDelete} />
             </div>
           </div>
         ))}
