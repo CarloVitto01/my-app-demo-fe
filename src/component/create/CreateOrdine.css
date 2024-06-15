@@ -1,12 +1,12 @@
 .sectionForm {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
 .input-form {
-    width: 30%;
+    width: 20em;
     height: 2em;
     margin: 0.8em;
     border-radius: 15px;
@@ -25,7 +25,6 @@
 .containerButtonCreate {
     display: flex;
     justify-content: center;
-    padding: 2em;
 }
 
 .buttonFormCreate{

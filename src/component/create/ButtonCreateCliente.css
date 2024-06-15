@@ -1,4 +1,4 @@
-.buttonCreate {
+.buttonCreateCliente {
     background-color: #c7ab2b;
     border: 1px solid #c7ab2b;
     border-radius: 15px;
@@ -8,7 +8,7 @@
     color: white;
 }
 
-.modalCreate {
+.modalCreateCliente {
     position: fixed;
     top: 0;
     left: 0;
@@ -20,25 +20,24 @@
     background-color: rgba(0, 0, 0, 0.541);
 }
 
-.modalContentCreate {
+.modalContentCreateCliente {
     background-color: #fefefe;
     padding: 20px;
     border: 3px solid #c7ab2b;
     border-radius: 15px;
-    width: 60em;
 }
 
-.headerModalCreate {
+.headerModalCreateCliente {
     border-bottom: 1px solid black;
 }
 
-.footerModalCreate {
+.footerModalCreateCliente {
     margin: 1em;
     display: flex;
     justify-content: flex-end;
 }
 
-.buttonCloseCreate {
+.buttonCloseCreateCliente {
     background-color: #680000;
     border: 1px solid #680000;
     cursor: pointer;
@@ -47,8 +46,8 @@
     color: white;
 }
 
-.buttonCloseCreate:hover, 
-.buttonCreate:hover{
+.buttonCloseCreateCliente:hover, 
+.buttonCreateCliente:hover{
     background-color: transparent;
     color: black;
 }

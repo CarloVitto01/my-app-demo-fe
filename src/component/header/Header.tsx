@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Header.css";
-import ButtonCreateSegnalazione from '../create/ButtonCreateSegnalazione';
+import ButtonCreateOrdine from '../create/ButtonCreateOrdine';
+import ButtonCreateCliente from '../create/ButtonCreateCliente';
 
 const Header = () => {
 
@@ -9,10 +10,11 @@ const Header = () => {
             <div className='containerHeader'>
                 <div className='sectionContainer'></div>
                 <div className='sectionContainer'>
-                    <h1 className='titleStyle'>Reporting Center</h1>
+                    <h1 className='titleStyle'>Pub CSM</h1>
+                    <span>Fresca sul Tavolo</span>
                 </div>
                 <div className='sectionContainer buttonModalCreate'>
-                    <ButtonCreateSegnalazione />
+                    <ButtonCreateOrdine />
                 </div>
             </div>
         </div>

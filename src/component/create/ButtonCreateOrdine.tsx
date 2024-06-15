@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './ButtonCreateSegnalazione.css';
-import CreateSegnalazioneForm from './CreateSegnalazione';
+import './ButtonCreateOrdine.css';
+import CreateOrdine from './CreateOrdine';
 
 
 const ButtonCreateSegnalazione = () => {
@@ -19,9 +19,9 @@ const ButtonCreateSegnalazione = () => {
         <div className="modalCreate">
           <div className="modalContentCreate">
             <div className="headerModalCreate">
-              <h2>Crea segnalazione</h2>
+              <h2>Crea Ordine</h2>
             </div>
-              <CreateSegnalazioneForm />
+              <CreateOrdine />
             <div className="footerModalCreate">
               <button className="buttonCloseCreate" onClick={handleClose}>
                 Chiudi

@@ -1,11 +1,11 @@
 import Cliente from "./ClienteModel";
-import Tecnico from "./TecnicoModel";
+import Prodotto from "./ProdottoModel";
 
 interface Segnalazione {
-    id_segnalazione?: number;
+    id?: number;
     cliente: Cliente,
-    tecnico: Tecnico,
-    data_ora: Date
+    prodotto: Prodotto,
+    date: Date
 }
 
 export default Segnalazione;

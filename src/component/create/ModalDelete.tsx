@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SegnalazioniService from '../../service/SegnalazioniService';
+import OrdineService from '../../service/OrdineService';
 import "./ModalDelete.css"
 
 interface iProps {
@@ -16,7 +16,7 @@ const ModalDelete = (props: iProps) => {
   const {deleteId, onDelete }= props
 
   const handleDelete = async () => {
-    await SegnalazioniService.deleteSegnalazione(deleteId);
+    await OrdineService.deleteOrdine(deleteId);
     console.log("Segnalazione eliminata con successo, ID: " + deleteId);
     onDelete(deleteId)
     handleClose();
@@ -25,7 +25,7 @@ const ModalDelete = (props: iProps) => {
   return (
     <>
       <button className="buttonDelete" onClick={handleShow}>
-        Elimina
+        Pagato
       </button>
 
       {show && (
@@ -35,7 +35,7 @@ const ModalDelete = (props: iProps) => {
               <h2>Conferma eliminazione</h2>
             </div>
             <div className="bodyModalDelete">
-              <p className='textModalDelete'>Sei sicuro di voler eliminare questa segnalazione?</p>
+              <p className='textModalDelete'>Sei sicuro di voler eliminare questo ordine?</p>
             </div>
             <div className="footerModalDelete">
               <button className="bottoneAnnullaDelete" onClick={handleClose}>
